@@ -1,0 +1,16 @@
+streamStorge:
+  engine:
+    type: "influxDB"
+    host: "http://influxdb:8086/"
+    token: "serect"
+    bucket: "TradeTick"
+  subscription:
+    - on: binance
+      symbol:
+      - BTCUSDT
+    - on: max
+      symbol:
+      - BTCUSDT
+  publish:
+    enable: true
+    chanel: "{{.exchange}}:{{.symbol}}"
